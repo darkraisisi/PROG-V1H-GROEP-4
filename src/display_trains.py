@@ -6,7 +6,7 @@ key = {'Ocp-Apim-Subscription-Key': 'c7779d626b66498a808b7568aed7ef9c'}
 
 params = urllib.parse.urlencode({
     'maxJourneys': '25',
-    'station': 'Ut' #hier variabele gebruiken voor wijzigen station
+    'station': 'Ut'#hier variabele gebruiken voor wijzigen station
 })
 
 try:
@@ -15,7 +15,7 @@ try:
 
     response = conn.getresponse()
     responsetext = response.read()
-    data = json.load(responsetext)
+    data = json.loads(responsetext)
 
     payloadObject = data['payload']
     departuresList = payloadObject['departures']
