@@ -6,7 +6,7 @@ class ApiManager(object):
 
     clientUrl = 'gateway.apiportal.ns.nl'
     baseUrl = '/public-reisinformatie/api/v2/'
-    depUrl = 'departures[?dateTime][&maxJourneys][&lang][&station][&uicCode][&source]'
+    depUrl = 'departures'
     headers = {
         # Request headers
         # David Demmers personal secondary key
@@ -28,15 +28,12 @@ class ApiManager(object):
             print(f"Err: {e}")
             return False, set()
 
-    def getDeparturesForStation() -> [bool,dict]:
+    def getDeparturesForStation(stationCode:str) -> [bool,dict]:
         params = urllib.parse.urlencode({
             # Request parameters
-            'dateTime': '{string}',
             'maxJourneys': '25',
             'lang': 'nl',
-            'station': '{string}',
-            'uicCode': '{string}',
-            'source': '{string}',
+            'station': stationCode
         })
         try:
             conn = http.client.HTTPSConnection(ApiManager.clientUrl)
@@ -44,7 +41,7 @@ class ApiManager(object):
             response = conn.getresponse()
             data = response.read().decode('utf-8')
             conn.close()
-            return True, json.loads(data)
+            return True, json.loads(data)['payload']['departures']
         except Exception as e:
             print(f"Err: {e}")
             return False, set()

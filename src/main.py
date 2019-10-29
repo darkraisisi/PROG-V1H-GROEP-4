@@ -1,24 +1,22 @@
 from managers.api_manager import ApiManager
-
+# import display_trains
 def run():
     print('hier alles doen kiddo\'s')
 
 def test_GetStations():
-    # api = ApiManager()
-    # res = api.getAllStations()
     succes, res = ApiManager.getAllStations()
     print(succes)
-    # print(res[200:205])
-    print("###################################")
-    for station in res:
-        if station['namen']['lang'] == "Utrecht Centraal":
-            print(station)
-        # print(station['namen']['lang'])
+    if succes:
+        for station in res:
+            if station['land'] == "NL":
+                # print(station)
+                print(f"Code: {station['code']}, {station['namen']['lang']} ")
 
-def test_getDeparturesForStation():
-    succes, res = ApiManager.getDeparturesForStation()
-    print(succes)
-    print(res)
+def test_getDeparturesForStation(stationCode:str):
+    succes, res = ApiManager.getDeparturesForStation(stationCode)
+    if succes:
+        for departure in res:
+            print(f"Vertrektijd: {departure['actualDateTime']}, Eindstation: {departure['direction']}, Spoor: {departure['plannedTrack']}, Trein Type: {departure['product']['longCategoryName']}")
 
 test_GetStations()
-test_getDeparturesForStation()
+test_getDeparturesForStation('UT')
