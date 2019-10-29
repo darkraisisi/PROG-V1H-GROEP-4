@@ -1,9 +1,11 @@
 from managers.api_manager import ApiManager
-# import display_trains
+
 def run():
     print('hier alles doen kiddo\'s')
 
 def test_GetStations():
+    # run the getAllStations from the apiManager class
+    # catch the 2 returned value's: a succes and the result
     succes, res = ApiManager.getAllStations()
     print(succes)
     if succes:

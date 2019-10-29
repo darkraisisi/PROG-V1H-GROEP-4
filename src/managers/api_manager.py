@@ -4,16 +4,20 @@ import json
 
 class ApiManager(object):
 
+    # Base http client where we are connecting to
     clientUrl = 'gateway.apiportal.ns.nl'
+    # basis api url
     baseUrl = '/public-reisinformatie/api/v2/'
-    depUrl = 'departures'
+    # Http request headers
     headers = {
-        # Request headers
         # David Demmers personal secondary key
         'Ocp-Apim-Subscription-Key': '6c0387de772249b7bed9164ee423d2af',
     }
-
     def getAllStations() -> [bool,dict]:
+        """
+        Make a get request and get all the stations.
+        Return a succes and a dict of the payload data
+        """
         params = urllib.parse.urlencode({
 
         })
@@ -29,6 +33,10 @@ class ApiManager(object):
             return False, set()
 
     def getDeparturesForStation(stationCode:str) -> [bool,dict]:
+        """
+        Make a get request and get all the departurs from a specific station from it\'s stationCode
+        Return a succes and a dict of the payload data
+        """
         params = urllib.parse.urlencode({
             # Request parameters
             'maxJourneys': '25',
