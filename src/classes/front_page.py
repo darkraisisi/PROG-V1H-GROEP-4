@@ -38,8 +38,7 @@ class frontPage(object):
         button3.grid(row=2, column=0, pady=32)
 
         '''Station wijzigen button'''
-        button4 = Button(master=frontPage.root, text='Station wijzigen', bg='#212B5C', activebackground='#212B5C',
-                         font=('Helvetica', 23, 'bold'))
+        button4 = Button(master=frontPage.root, text='Station wijzigen', bg='#212B5C', activebackground='#212B5C', font=('Helvetica', 23, 'bold'), command = frontPage.filterPage)
         button4.grid(row=3, column=0)
 
         frontPage.root.mainloop()
@@ -48,7 +47,6 @@ class frontPage(object):
             print('BeepBoop')
 
     def filterPage():
-
         frontPage.root.configure(background='#FCC63F')
 
         'Filter button A - C'
