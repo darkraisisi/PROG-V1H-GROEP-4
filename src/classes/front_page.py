@@ -1,3 +1,4 @@
+from managers.api_manager import ApiManager
 from tkinter import *
 from PIL import ImageTk, Image
 import os
@@ -34,7 +35,7 @@ class frontPage(object):
         label2.grid(column=0, row=1)
 
         '''Reisinformatie button'''
-        button3 = Button(master=frontPage.root, text='Toon reisinformatie', bg='#212B5C', activebackground='#212B5C',font=('Helvetica', 23, 'bold'), command = frontPage.showInfoPage)
+        button3 = Button(master=frontPage.root, text='Toon reisinformatie', bg='#212B5C',font=('Helvetica', 23, 'bold'), command = lambda : frontPage.showInfoPage('UT'))
         button3.grid(row=2, column=0, pady=32)
 
         '''Station wijzigen button'''
@@ -43,7 +44,10 @@ class frontPage(object):
 
         frontPage.root.mainloop()
 
-    def showInfoPage():
+    def showInfoPage(stationCode):
+            succes, res = ApiManager.getDeparturesForStation(stationCode)
+            print(res)
+            print(succes)
             print('BeepBoop')
 
     def filterPage():

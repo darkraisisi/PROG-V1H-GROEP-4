@@ -3,8 +3,8 @@ from classes.front_page import frontPage
 
 def run():
     frontPage.mainPage()
-    test_GetStations()
-    test_getDeparturesForStation('UT')
+    # test_GetStations()
+    # test_getDeparturesForStation('UT')
 
 def test_GetStations():
     # run the getAllStations from the apiManager class
