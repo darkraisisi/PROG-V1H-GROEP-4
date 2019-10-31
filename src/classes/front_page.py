@@ -50,43 +50,61 @@ class frontPage(object):
             print(succes)
             print('BeepBoop')
 
+    def stationFilter(letters:list):
+        print('filter')
+        returnDict = {}
+        succes, res = ApiManager.getAllStations()
+        if succes:
+            for station in res:
+                for letter in letters:
+                    print(station)
+                    if station['namen']['lang'][0] == letter and station['land'] == 'NL':
+                        returnDict.update({station['namen']['lang'] : station['code']})
+                        continue
+            print(returnDict)
+        else:
+            return returnDict
+
     def filterPage():
         frontPage.root.configure(background='#FCC63F')
 
         'Filter button A - C'
-        button1 = Button(master=frontPage.root, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['A', 'B', 'C']))
         button1.grid(row=0, column=0, pady=4)
 
         'Filter button D - F'
-        button1 = Button(master=frontPage.root, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['D', 'E', 'F']))
         button1.grid(row=0, column=1, pady=4)
 
         'Filter button G - I'
-        button1 = Button(master=frontPage.root, text='G - I', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='G - I', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['G', 'H', 'I']))
         button1.grid(row=0, column=2, pady=4)
 
         'Filter button J - L'
-        button1 = Button(master=frontPage.root, text='J - L', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='J - L', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['J', 'K', 'L']))
         button1.grid(row=1, column=0, pady=4)
 
         'Filter button M - O'
-        button1 = Button(master=frontPage.root, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['M', 'N', 'O']))
         button1.grid(row=1, column=1, pady=4)
 
         'Filter button P - R'
-        button1 = Button(master=frontPage.root, text='P - R', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='P - R', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['P', 'Q', 'R']))
         button1.grid(row=1, column=2, pady=4)
 
         'Filter button S - U'
-        button1 = Button(master=frontPage.root, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['S', 'T', 'U']))
         button1.grid(row=2, column=0, pady=4)
 
         'Filter button V - X'
-        button1 = Button(master=frontPage.root, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['V', 'W', 'X']))
         button1.grid(row=2, column=1, pady=4)
 
         'Filter button Y - Z'
-        button1 = Button(master=frontPage.root, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1 = Button(master=frontPage.root, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=lambda:frontPage.stationFilter(['Y', 'Z']))
         button1.grid(row=2, column=2, pady=4)
 
         frontPage.root.mainloop()
+
+
+
