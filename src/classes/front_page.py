@@ -41,3 +41,13 @@ class frontPage(object):
 
     def showInfoPage():
             print('BeepBoop')
+
+    def filterPage():
+
+        frontPage.root.configure(background='#FCC63F')
+
+        'Filter button A - C'
+        button1 = Button(master=frontPage.root, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'), command=frontPage.showInfoPage)
+        button1.grid(row=0, column=0, pady=4)
+
+        frontPage.root.mainloop()
