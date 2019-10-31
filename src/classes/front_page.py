@@ -45,7 +45,7 @@ class frontPage(object):
 
         frontPage.root.mainloop()
 
-    def showInfoPage(stationsCode):
+    def showInfoPage(stationCode):
             succes, res = ApiManager.getDeparturesForStation(stationCode)
             print(res)
             print(succes)
