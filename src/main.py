@@ -1,8 +1,10 @@
 from managers.api_manager import ApiManager
-from classes.front_page.py import frontPage
+from classes.front_page import frontPage
 
 def run():
-    print('hier alles doen kiddo\'s')
+    frontPage.mainPage()
+    test_GetStations()
+    test_getDeparturesForStation('UT')
 
 def test_GetStations():
     # run the getAllStations from the apiManager class
@@ -21,5 +23,4 @@ def test_getDeparturesForStation(stationCode:str):
         for departure in res:
             print(f"Vertrektijd: {departure['actualDateTime']}, Eindstation: {departure['direction']}, Spoor: {departure['plannedTrack']}, Trein Type: {departure['product']['longCategoryName']}")
 
-test_GetStations()
-test_getDeparturesForStation('UT')
+run()
