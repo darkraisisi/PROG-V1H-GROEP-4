@@ -56,16 +56,16 @@ class frontPage(object):
 
     def stationFilter(letters: list):
         """Function for filtering station results"""
-        print('filter')
         returnDict = {}
         succes, res = ApiManager.getAllStations()  # Get all the stations
         if succes:
             for station in res:
-                for letter in letters:  # Check letters in station[0]
-                    print(station)
-                    if station['namen']['lang'][0] == letter and station['land'] == 'NL':
-                        returnDict.update({station['namen']['lang']: station['code']})
-                        continue
+                if station['land'] == 'NL':
+                    for letter in letters:  # Check letters in station[0]
+                        # print(station)
+                        if station['namen']['lang'][0] == letter:
+                            returnDict.update({station['namen']['lang']: station['code']})
+                            break
             return returnDict
         else:
             return returnDict
