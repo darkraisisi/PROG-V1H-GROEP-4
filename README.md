@@ -7,4 +7,4 @@ File Names: `no_spaces_or_capital_letter.py`
 Class Names: Always use `PascalCase`
  
 # Installation #
-In de commandprompt voor python: `pip install requests`
+`pip install pillow`
