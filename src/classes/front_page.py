@@ -72,51 +72,52 @@ class frontPage(object):
 
     def filterPage():
         """Page with all the filterbuttons"""
-        # frontPage.root.configure(background='#FCC63F')
+
         frontPage.root.columnconfigure(0, weight=0)
+
         'Filter button A - C'
-        button1 = Button(master=frontPage.root, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton1 = Button(master=frontPage.root, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['A', 'B', 'C']))
-        button1.place(x=10, y=20)
+        filterButton1.place(x=10, y=20)
 
         'Filter button D - F'
-        button1 = Button(master=frontPage.root, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton2 = Button(master=frontPage.root, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['D', 'E', 'F']))
-        button1.place(x=10, y=90)
+        filterButton2.place(x=10, y=90)
 
         'Filter button G - I'
-        button1 = Button(master=frontPage.root, text='G - I ', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton3 = Button(master=frontPage.root, text='G - I ', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['G', 'H', 'I']))
-        button1.place(x=10, y=160)
+        filterButton3.place(x=10, y=160)
 
         'Filter button J - L'
-        button1 = Button(master=frontPage.root, text='J - L ', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton4 = Button(master=frontPage.root, text='J - L ', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['J', 'K', 'L']))
-        button1.place(x=10, y=240)
+        filterButton4.place(x=10, y=240)
 
         'Filter button M - O'
-        button1 = Button(master=frontPage.root, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton5 = Button(master=frontPage.root, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['M', 'N', 'O']))
-        button1.place(x=10, y=310)
+        filterButton5.place(x=10, y=310)
 
         'Filter button P - R'
-        button1 = Button(master=frontPage.root, text='P - R ', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton6 = Button(master=frontPage.root, text='P - R ', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['P', 'Q', 'R']))
-        button1.place(x=10, y=380)
+        filterButton6.place(x=10, y=380)
 
         'Filter button S - U'
-        button1 = Button(master=frontPage.root, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton7 = Button(master=frontPage.root, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['S', 'T', 'U']))
-        button1.place(x=10, y=450)
+        filterButton7.place(x=10, y=450)
 
         'Filter button V - X'
-        button1 = Button(master=frontPage.root, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton8 = Button(master=frontPage.root, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['V', 'W', 'X']))
-        button1.place(x=10, y=520)
+        filterButton8.place(x=10, y=520)
 
         'Filter button Y - Z'
-        button1 = Button(master=frontPage.root, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),
+        filterButton9 = Button(master=frontPage.root, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),
                          command=lambda: frontPage.stationFilter(['Y', 'Z']))
-        button1.place(x=10, y=590)
+        filterButton9.place(x=10, y=590)
 
         frontPage.root.mainloop()
