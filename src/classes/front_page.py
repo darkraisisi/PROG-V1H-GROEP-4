@@ -8,12 +8,12 @@ import datetime
 def showStationButtons(returnDict):
     i=1
     for station in returnDict:
-        button = Button(master=frontPage.filterScreen, text=station, bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.showInfoPage(returnDict[station])).grid(row=i,column=2,padx=5,pady=5)
-        i += 1
-
-
-
-
+        if i != 10:
+            button = Button(master=frontPage.filterScreen, text=station, bg='#212B5C', font=('Helvetica', 12, 'bold'),command=lambda: frontPage.showInfoPage(returnDict[station])).grid(row=i,column=2,padx=5,pady=5)
+            i += 1
+        else:
+            break
+            # print(button)
 
 class frontPage(object):
     dirPath = os.path.dirname(__file__)
@@ -102,6 +102,9 @@ class frontPage(object):
 
         'Filter button Y - Z'
         filterButton9 = Button(master=frontPage.filterScreen, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['Y', 'Z'])).grid(row=9,column=1,padx=5,pady=5,sticky=W+E)
+
+        # filterScreen2 = Frame(master=frontPage.filterScreen.grid(row=1,column=2,padx=5,pady=5,sticky=W+E)
+
 
 # START TRAVEL INFO SCREEN
         frontPage.travelInfoScreen.configure(background='#FCC63F')
