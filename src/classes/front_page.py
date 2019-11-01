@@ -10,7 +10,7 @@ def showStationButtons(returnDict):
     i=1
     print(returnDict.values())
     for station in returnDict:
-        button = Button(master=frontPage.filterScreen, text=station, bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.showInfoPage(['A', 'B', 'C'])).grid(row=i,column=2,padx=5,pady=5)
+        button = Button(master=frontPage.filterScreen, text=station, bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.showInfoPage(returnDict[station])).grid(row=i,column=2,padx=5,pady=5)
         i += 1
         # print(button)
 
