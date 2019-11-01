@@ -4,6 +4,20 @@ from PIL import ImageTk, Image
 import os
 import datetime
 
+
+def showStationButtons(returnDict):
+    # frameFilter = Frame
+    i=1
+    print(returnDict.values())
+    for station in returnDict:
+        button = Button(master=frontPage.filterScreen, text=station, bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.showInfoPage(['A', 'B', 'C'])).grid(row=i,column=2,padx=5,pady=5)
+        i += 1
+        # print(button)
+
+
+
+
+
 class frontPage(object):
     dirPath = os.path.dirname(__file__)
     filePath = os.path.join(dirPath, '../images/ns-logo.jpg')
@@ -148,8 +162,12 @@ class frontPage(object):
                             break
             # print(returnDict)
             # print(datetime.datetime.now())
-            return returnDict
+            showStationButtons(returnDict)
+            # return returnDict
         else:
             # print(returnDict)
             # print(datetime.datetime.now())
             return returnDict
+
+
+
