@@ -24,7 +24,7 @@ class frontPage(object):
 
     root.geometry('{}x{}'.format(w, h))
     for frame in (mainScreen, filterScreen, travelInfoScreen):
-        frame.grid(row=0, column=0, sticky='news',)
+        frame.grid(row=0, column=0, sticky='news',columnspan=3)
         
     def __init__():
         '''Achtergrond kleur'''
@@ -61,43 +61,46 @@ class frontPage(object):
         frontPage.filterScreen.configure(background='#FCC63F')
         frontPage.filterScreen.columnconfigure(0, weight=0)
 
-        filterBackButton = Button(master=frontPage.filterScreen, text='Terug', bg='#212B5C', font=('Helvetica', 10),command=lambda:frontPage.raiseFrame(frontPage.mainScreen))
+        filterBackButton = Button(master=frontPage.filterScreen, text='Terug', bg='#212B5C',fg='#ffffff', font=('Helvetica', 10),command=lambda:frontPage.raiseFrame(frontPage.mainScreen))
         filterBackButton.grid(row=0,column=0)
 
         'Filter button A - C'
-        filterButton1 = Button(master=frontPage.filterScreen, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['A', 'B', 'C'])).grid(row=1,column=1,padx=5,pady=5)
+        filterButton1 = Button(master=frontPage.filterScreen, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['A', 'B', 'C'])).grid(row=1,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button D - F'
-        filterButton2 = Button(master=frontPage.filterScreen, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['D', 'E', 'F'])).grid(row=2,column=1,padx=5,pady=5)
+        filterButton2 = Button(master=frontPage.filterScreen, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['D', 'E', 'F'])).grid(row=2,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button G - I'
-        filterButton3 = Button(master=frontPage.filterScreen, text='G - I ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['G', 'H', 'I'])).grid(row=3,column=1,padx=5,pady=5)
+        filterButton3 = Button(master=frontPage.filterScreen, text='G - I ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['G', 'H', 'I'])).grid(row=3,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button J - L'
-        filterButton4 = Button(master=frontPage.filterScreen, text='J - L ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['J', 'K', 'L'])).grid(row=4,column=1,padx=5,pady=5)
+        filterButton4 = Button(master=frontPage.filterScreen, text='J - L ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['J', 'K', 'L'])).grid(row=4,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button M - O'
-        filterButton5 = Button(master=frontPage.filterScreen, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['M', 'N', 'O'])).grid(row=5,column=1,padx=5,pady=5)
+        filterButton5 = Button(master=frontPage.filterScreen, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['M', 'N', 'O'])).grid(row=5,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button P - R'
-        filterButton6 = Button(master=frontPage.filterScreen, text='P - R ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['P', 'Q', 'R'])).grid(row=6,column=1,padx=5,pady=5)
+        filterButton6 = Button(master=frontPage.filterScreen, text='P - R ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['P', 'Q', 'R'])).grid(row=6,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button S - U'
-        filterButton7 = Button(master=frontPage.filterScreen, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['S', 'T', 'U'])).grid(row=7,column=1,padx=5,pady=5)
+        filterButton7 = Button(master=frontPage.filterScreen, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['S', 'T', 'U'])).grid(row=7,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button V - X'
-        filterButton8 = Button(master=frontPage.filterScreen, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['V', 'W', 'X'])).grid(row=8,column=1,padx=5,pady=5)
+        filterButton8 = Button(master=frontPage.filterScreen, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['V', 'W', 'X'])).grid(row=8,column=1,padx=5,pady=5,sticky=W+E)
 
         'Filter button Y - Z'
-        filterButton9 = Button(master=frontPage.filterScreen, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['Y', 'Z'])).grid(row=9,column=1,padx=5,pady=5)
+        filterButton9 = Button(master=frontPage.filterScreen, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['Y', 'Z'])).grid(row=9,column=1,padx=5,pady=5,sticky=W+E)
 
 # START TRAVEL INFO SCREEN
         frontPage.travelInfoScreen.configure(background='#FCC63F')
         frontPage.travelInfoScreen.columnconfigure(0, weight=1)
         # label3_1 = Label(frontPage.travelInfoScreen, text="Ik ben roemer en ik hou van memes", background='#FCC63F',foreground='#212B5C',height=3,font=('', 16, 'bold')).pack()
-        button3_1 = Button(master=frontPage.travelInfoScreen, text='Terug', bg='#212B5C', font=('Helvetica', 10),command=lambda:frontPage.raiseFrame(frontPage.mainScreen))
-        button3_1.grid(row=0,column=0,pady=1)
+        button3_1 = Button(master=frontPage.travelInfoScreen, text='Terug',fg='#ffffff', bg='#212B5C', font=('Helvetica', 10),command=lambda:frontPage.raiseFrame(frontPage.mainScreen))
+        # button3_1.grid(row=0,column=0,pady=1)
+        button3_1.pack(side=TOP)
         
+        logo = Label(master=frontPage.travelInfoScreen, text='vertrektijden', background='#FCC63F', foreground='dark blue',font=('Ariel', 30, 'bold'))
+        logo.pack(side=TOP)
 # Raise main screen and initiate main gui loop
         frontPage.mainScreen.tkraise()
         frontPage.root.mainloop()
@@ -105,9 +108,29 @@ class frontPage(object):
 
     def showInfoPage(stationCode):
         frontPage.raiseFrame(frontPage.travelInfoScreen)
-        # succes, res = ApiManager.getDeparturesForStation(stationCode)
-        # print(res)
-        # print(succes)
+        succes, res = ApiManager.getDeparturesForStation(stationCode)
+        print(res[0])
+        print(succes)
+        for train in res:
+            group = Label(frontPage.travelInfoScreen, width=frontPage.w, height=1, bg='white')
+            group.lower()
+
+            tijden = Label(master=group, text=train["plannedDateTime"], background='white', foreground='dark blue', font=('Ariel', 24),
+                        height=1)
+            tijden.pack(side=LEFT)
+
+            bestemming = Label(master=group, text=f'Bestemming: {train["direction"]}', background='white', foreground='dark blue',
+                            font=('Ariel', 24, 'bold'), height=1)
+            bestemming.pack(side=LEFT)
+
+            spoor = Label(master=group, text=f'Spoor {train["plannedTrack"]}', background='white', foreground='red', font=('Ariel', 24), height=1)
+            spoor.pack(side=RIGHT)
+
+            soort = Label(master=group, text=train["trainCategory"], background='white', foreground='dark blue', font=('Ariel', 20),
+                        height=1)
+            soort.pack(side=LEFT)
+
+            group.pack(side=TOP, fill=X)
         print('BeepBoop')
 
     def stationFilter(letters: list):
