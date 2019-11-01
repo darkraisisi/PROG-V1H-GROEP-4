@@ -7,15 +7,20 @@ import datetime
 
 def showStationButtons(returnDict):
     # frameFilter = Frame
-    i=1
+    print(frontPage.filterScreen.winfo_children()[-1])
+    if frontPage.filterScreen.winfo_children()[-1].winfo_children():
+        frontPage.filterScreen.winfo_children()[-1].winfo_children().remove()
+    i = 1
+    c = 0
     print(returnDict.values())
     for station in returnDict:
-        if i != 10:
-            button = Button(master=frontPage.filterScreen, text=station, bg='#212B5C', font=('Helvetica', 12, 'bold'),command=lambda: frontPage.showInfoPage(returnDict[station])).grid(row=i,column=2,padx=5,pady=5)
-            i += 1
-        else:
-            break
-            # print(button)
+        button = Button(master=frontPage.filterScreen.winfo_children()[-1], text=station, bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.showInfoPage(returnDict[station])).grid(row=i,column=c,padx=5,pady=5)
+        i += 1
+        if i == 10 or i == 20:
+            c += 1
+            i = 1
+
+        # print(button)
 
 
 
@@ -109,8 +114,8 @@ class frontPage(object):
         'Filter button Y - Z'
         filterButton9 = Button(master=frontPage.filterScreen, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['Y', 'Z'])).grid(row=9,column=1,padx=5,pady=5,sticky=W+E)
 
-        # filterScreen2 = Frame(master=frontPage.filterScreen.grid(row=1,column=2,padx=5,pady=5,sticky=W+E)
-
+        filterScreen2 = Frame(master=frontPage.filterScreen).grid(row=1,column=2,padx=5,pady=5,rowspan=10)
+        print(filterScreen2)
 
 # START TRAVEL INFO SCREEN
         frontPage.travelInfoScreen.configure(background='#FCC63F')
