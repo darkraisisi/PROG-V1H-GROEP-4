@@ -24,7 +24,7 @@ class frontPage(object):
 
     root.geometry('{}x{}'.format(w, h))
     for frame in (mainScreen, filterScreen, travelInfoScreen):
-        frame.grid(row=0, column=0, sticky='news',columnspan=3)
+        frame.grid(row=0, column=0, sticky='news')
         
     def __init__():
         '''Achtergrond kleur'''
@@ -40,6 +40,7 @@ class frontPage(object):
 
         label.grid(column=0, row=0)
         frontPage.mainScreen.columnconfigure(0, weight=1)
+        
 
         '''Logo van NS'''
         img = ImageTk.PhotoImage(Image.open(frontPage.filePath))
@@ -145,7 +146,7 @@ class frontPage(object):
                         if station['namen']['lang'][0] == letter:
                             returnDict.update({station['namen']['lang']: station['code']})
                             break
-            print(returnDict)
+            # print(returnDict)
             # print(datetime.datetime.now())
             return returnDict
         else:
