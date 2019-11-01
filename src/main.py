@@ -2,7 +2,7 @@ from managers.api_manager import ApiManager
 from classes.front_page import frontPage
 
 def run():
-    frontPage.mainPage()
+    frontPage.__init__()
     # test_GetStations()
     # test_getDeparturesForStation('UT')
 
