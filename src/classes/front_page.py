@@ -127,7 +127,7 @@ class frontPage(object):
                         if station['namen']['lang'][0] == letter:
                             returnDict.update({station['namen']['lang']: station['code']})
                             break
-            # print(returnDict)
+            print(returnDict)
             # print(datetime.datetime.now())
             return returnDict
         else:
