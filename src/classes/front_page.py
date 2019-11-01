@@ -61,46 +61,41 @@ class frontPage(object):
         frontPage.filterScreen.configure(background='#FCC63F')
         frontPage.filterScreen.columnconfigure(0, weight=0)
 
+        filterBackButton = Button(master=frontPage.filterScreen, text='Terug', bg='#212B5C', font=('Helvetica', 10),command=lambda:frontPage.raiseFrame(frontPage.mainScreen))
+        filterBackButton.grid(row=0,column=0)
+
         'Filter button A - C'
-        filterButton1 = Button(master=frontPage.filterScreen, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['A', 'B', 'C']))
-        filterButton1.place(x=10, y=20)
+        filterButton1 = Button(master=frontPage.filterScreen, text='A - C', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['A', 'B', 'C'])).grid(row=1,column=1,padx=5,pady=5)
 
         'Filter button D - F'
-        filterButton2 = Button(master=frontPage.filterScreen, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['D', 'E', 'F']))
-        filterButton2.place(x=10, y=90)
+        filterButton2 = Button(master=frontPage.filterScreen, text='D - F', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['D', 'E', 'F'])).grid(row=2,column=1,padx=5,pady=5)
 
         'Filter button G - I'
-        filterButton3 = Button(master=frontPage.filterScreen, text='G - I ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['G', 'H', 'I']))
-        filterButton3.place(x=10, y=160)
+        filterButton3 = Button(master=frontPage.filterScreen, text='G - I ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['G', 'H', 'I'])).grid(row=3,column=1,padx=5,pady=5)
 
         'Filter button J - L'
-        filterButton4 = Button(master=frontPage.filterScreen, text='J - L ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['J', 'K', 'L']))
-        filterButton4.place(x=10, y=240)
+        filterButton4 = Button(master=frontPage.filterScreen, text='J - L ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['J', 'K', 'L'])).grid(row=4,column=1,padx=5,pady=5)
 
         'Filter button M - O'
-        filterButton5 = Button(master=frontPage.filterScreen, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['M', 'N', 'O']))
-        filterButton5.place(x=10, y=310)
+        filterButton5 = Button(master=frontPage.filterScreen, text='M - O', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['M', 'N', 'O'])).grid(row=5,column=1,padx=5,pady=5)
 
         'Filter button P - R'
-        filterButton6 = Button(master=frontPage.filterScreen, text='P - R ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['P', 'Q', 'R']))
-        filterButton6.place(x=10, y=380)
+        filterButton6 = Button(master=frontPage.filterScreen, text='P - R ', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['P', 'Q', 'R'])).grid(row=6,column=1,padx=5,pady=5)
 
         'Filter button S - U'
-        filterButton7 = Button(master=frontPage.filterScreen, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['S', 'T', 'U']))
-        filterButton7.place(x=10, y=450)
+        filterButton7 = Button(master=frontPage.filterScreen, text='S - U', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['S', 'T', 'U'])).grid(row=7,column=1,padx=5,pady=5)
 
         'Filter button V - X'
-        filterButton8 = Button(master=frontPage.filterScreen, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['V', 'W', 'X']))
-        filterButton8.place(x=10, y=520)
+        filterButton8 = Button(master=frontPage.filterScreen, text='V - X', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['V', 'W', 'X'])).grid(row=8,column=1,padx=5,pady=5)
 
         'Filter button Y - Z'
-        filterButton9 = Button(master=frontPage.filterScreen, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['Y', 'Z']))
-        filterButton9.place(x=10, y=590)
+        filterButton9 = Button(master=frontPage.filterScreen, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['Y', 'Z'])).grid(row=9,column=1,padx=5,pady=5)
+
 # START TRAVEL INFO SCREEN
         frontPage.travelInfoScreen.configure(background='#FCC63F')
         frontPage.travelInfoScreen.columnconfigure(0, weight=1)
         # label3_1 = Label(frontPage.travelInfoScreen, text="Ik ben roemer en ik hou van memes", background='#FCC63F',foreground='#212B5C',height=3,font=('', 16, 'bold')).pack()
-        button3_1 = Button(frontPage.travelInfoScreen, text='Terug',bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda:frontPage.raiseFrame(frontPage.mainScreen))
+        button3_1 = Button(master=frontPage.travelInfoScreen, text='Terug', bg='#212B5C', font=('Helvetica', 10),command=lambda:frontPage.raiseFrame(frontPage.mainScreen))
         button3_1.grid(row=0,column=0,pady=1)
         
 # Raise main screen and initiate main gui loop
