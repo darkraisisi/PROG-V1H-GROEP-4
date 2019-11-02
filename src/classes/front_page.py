@@ -36,12 +36,12 @@ class frontPage(object):
     h = '720'
 
     root = Tk()
+    root.state('zoomed')
     mainScreen = Frame(root, width=w, height=h)
     filterScreen = Frame(root, width=w, height=h)
     travelInfoScreen = Frame(root, width=w, height=h)
 
     '''Default grootte van het scherm'''
-
 
     root.geometry('{}x{}'.format(w, h))
     for frame in (mainScreen, filterScreen, travelInfoScreen):
@@ -114,6 +114,7 @@ class frontPage(object):
         filterButton9 = Button(master=frontPage.filterScreen, text='Y - Z', bg='#212B5C', font=('Helvetica', 23, 'bold'),command=lambda: frontPage.stationFilter(['Y', 'Z'])).grid(row=9,column=1,padx=5,pady=5,sticky=W+E)
 
         filterScreen2 = Frame(master=frontPage.filterScreen).grid(row=1,column=2,padx=5,pady=5,rowspan=10)
+
 
         print(filterScreen2)
 
