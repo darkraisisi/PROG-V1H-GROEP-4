@@ -8,3 +8,7 @@ Class Names: Always use `PascalCase`
  
 # Installation #
 `pip install pillow`
+Be sure to have Python `3.6`
+
+# Run #
+`X:/yourPathHere/python.exe "X:/yourPathHere/src/main.py"`
