@@ -156,18 +156,9 @@ class frontPage(object):
             for station in res:
                 if station['land'] == 'NL':
                     for letter in letters:  # Check letters in station[0]
-                        # print(station)
                         if station['namen']['lang'][0] == letter:
                             returnDict.update({station['namen']['lang']: station['code']})
                             break
-            # print(returnDict)
-            # print(datetime.datetime.now())
             showStationButtons(returnDict)
-            # return returnDict
         else:
-            # print(returnDict)
-            # print(datetime.datetime.now())
-            return returnDict
-
-
-
+            frontPage.raiseFrame(frontPage.mainScreen)
