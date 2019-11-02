@@ -9,7 +9,6 @@ def showStationButtons(returnDict):
     if frontPage.filterScreen.winfo_children()[-1].winfo_children():
         lst = frontPage.filterScreen.winfo_children()[-1].winfo_children()
         for item in lst:
-            print(item)
             item.destroy()
     i = 1
     c = 0
@@ -21,10 +20,6 @@ def showStationButtons(returnDict):
             c += 1
             i = 1
 
-        # print(button)
-
-
-
 class frontPage(object):
     dirPath = os.path.dirname(__file__)
     filePath = os.path.join(dirPath, '../images/ns-logo.jpg')
@@ -32,12 +27,12 @@ class frontPage(object):
     def raiseFrame(_frame:Frame):
         _frame.tkraise()
 
-    w = '1280'
-    h = '720'
+    w = 1280
+    h = 720
 
     root = Tk()
     root.state('zoomed')
-    mainScreen = Frame(root, width=w, height=h)
+    mainScreen = Frame(root, width=w, height=h,)
     filterScreen = Frame(root, width=w, height=h)
     travelInfoScreen = Frame(root, width=w, height=h)
 
@@ -56,7 +51,7 @@ class frontPage(object):
         label = Label(frontPage.mainScreen, text="Welkom bij NS", background='#FCC63F',
                         foreground='#212B5C',
                         font=('Helvetica', 16, 'bold italic'),
-                        width=14,
+                        width=int(frontPage.w / 12),
                         height=3)
 
         label.grid(column=0, row=0)
@@ -115,9 +110,6 @@ class frontPage(object):
 
         filterScreen2 = Frame(master=frontPage.filterScreen ,bg="#FCC63F").grid(row=1,column=2,padx=5,pady=5,rowspan=10)
 
-
-        print(filterScreen2)
-
 # START TRAVEL INFO SCREEN
         frontPage.travelInfoScreen.configure(background='#FCC63F')
         frontPage.travelInfoScreen.columnconfigure(0, weight=1)
@@ -136,29 +128,29 @@ class frontPage(object):
     def showInfoPage(stationCode):
         frontPage.raiseFrame(frontPage.travelInfoScreen)
         succes, res = ApiManager.getDeparturesForStation(stationCode)
-        print(res[0])
-        print(succes)
-        for train in res:
-            group = Label(frontPage.travelInfoScreen, width=frontPage.w, height=1, bg='white')
-            group.lower()
+        if(succes):
+            for train in res:
+                group = Label(frontPage.travelInfoScreen, width=frontPage.w, height=1, bg='white')
+                group.lower()
 
-            tijden = Label(master=group, text=train["plannedDateTime"], background='white', foreground='dark blue', font=('Ariel', 24),
-                        height=1)
-            tijden.pack(side=LEFT)
+                tijden = Label(master=group, text=train["plannedDateTime"], background='white', foreground='dark blue', font=('Ariel', 24),
+                            height=1)
+                tijden.pack(side=LEFT)
 
-            bestemming = Label(master=group, text=f'Bestemming: {train["direction"]}', background='white', foreground='dark blue',
-                            font=('Ariel', 24, 'bold'), height=1)
-            bestemming.pack(side=LEFT)
+                bestemming = Label(master=group, text=f'Bestemming: {train["direction"]}', background='white', foreground='dark blue',
+                                font=('Ariel', 24, 'bold'), height=1)
+                bestemming.pack(side=LEFT)
 
-            spoor = Label(master=group, text=f'Spoor {train["plannedTrack"]}', background='white', foreground='red', font=('Ariel', 24), height=1)
-            spoor.pack(side=RIGHT)
+                spoor = Label(master=group, text=f'Spoor {train["plannedTrack"]}', background='white', foreground='red', font=('Ariel', 24), height=1)
+                spoor.pack(side=RIGHT)
 
-            soort = Label(master=group, text=train["trainCategory"], background='white', foreground='dark blue', font=('Ariel', 20),
-                        height=1)
-            soort.pack(side=LEFT)
+                soort = Label(master=group, text=train["trainCategory"], background='white', foreground='dark blue', font=('Ariel', 20),
+                            height=1)
+                soort.pack(side=LEFT)
 
-            group.pack(side=TOP, fill=X)
-        print('BeepBoop')
+                group.pack(side=TOP, fill=X)
+        else:
+            frontPage.raiseFrame(frontPage.mainScreen)
 
     def stationFilter(letters: list):
         """Function for filtering station results"""
